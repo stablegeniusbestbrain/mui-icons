@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { values, keys } from 'lodash';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 
 import * as Cmdi from '../cmdi';
 import * as Evilicons from '../evilicons';
@@ -40,11 +41,12 @@ const IconList = ({ library }) => {
   const keyArray = keys(Lib);
   const buttons = values(Lib).map((Icon, i) => (
     <div key={keyArray[i]} style={style.content}>
-      <RaisedButton
-        label={<span style={{ textTransform: 'none' }}>{keyArray[i]}</span>}
-        secondary
-        icon={<Icon />}
-      />
+      <Button
+        title={keyArray[i]}
+        variant="fab"
+      >
+        <Icon />
+      </Button>
     </div>
   ));
 

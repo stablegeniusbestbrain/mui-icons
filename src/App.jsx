@@ -1,87 +1,100 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
-import AppBar from 'material-ui/AppBar';
-import IconMenu from 'material-ui/IconMenu';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import IconButton from 'material-ui/IconButton';
-import MenuItem from 'material-ui/MenuItem';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 import IconList from './IconList';
 
-const Menu = ({ setLibrary, library, ...props }) => (
-  <IconMenu
-    {...props}
-    iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-    targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-    anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-  >
-    <MenuItem
-      primaryText="Community M. D. Icons"
-      onTouchTap={() => { setLibrary('cmdi'); }}
-      disabled={library === 'cmdi'}
-    />
-    <MenuItem
-      primaryText="EvilIcons"
-      onTouchTap={() => { setLibrary('evilicons'); }}
-      disabled={library === 'evilicons'}
-    />
-    <MenuItem
-      primaryText="FontAwesome"
-      onTouchTap={() => { setLibrary('fontawesome'); }}
-      disabled={library === 'fontawesome'}
-    />
-    <MenuItem
-      primaryText="IonIcons"
-      onTouchTap={() => { setLibrary('ionicons'); }}
-      disabled={library === 'ionicons'}
-    />
-    <MenuItem
-      primaryText="Material Design Icons"
-      onTouchTap={() => { setLibrary('mdi'); }}
-      disabled={library === 'mdi'}
-    />
-    <MenuItem
-      primaryText="Github Octicons"
-      onTouchTap={() => { setLibrary('octicons'); }}
-      disabled={library === 'octicons'}
-    />
-    <MenuItem
-      primaryText="Typicons"
-      onTouchTap={() => { setLibrary('typicons'); }}
-      disabled={library === 'octtypiconsicons'}
-    />
-  </IconMenu>
-);
-Menu.propTypes = {
-  setLibrary: PropTypes.func.isRequired,
-  library: PropTypes.string.isRequired,
-};
-Menu.muiName = 'IconMenu';
-
-
 class App extends Component {
   state = {
+    anchorEl: null,
     library: 'mdi',
   };
 
+  setLibrary = (library) => {
+    this.setState({
+      anchorEl: null,
+      library,
+    });
+  }
+
+  handleClick = (event) => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
   render() {
-    const { library } = this.state;
+    const { anchorEl, library } = this.state;
 
     return (
       <div style={{ height: '100%' }}>
-        <AppBar
-          style={{ position: 'fixed' }}
-          title="Mui Icons"
-          iconElementLeft={<span />}
-          iconElementRight={
+        <AppBar position="static" color="default">
+          <Toolbar>
+            <Typography variant="title" color="inherit" style={{ flex: 1 }}>
+              Mui Icons
+            </Typography>
+            <Button
+              aria-owns={anchorEl ? 'simple-menu' : null}
+              aria-haspopup="true"
+              variant="contained"
+              onClick={this.handleClick}
+            >
+              {library}
+            </Button>
             <Menu
-              library={library}
-              setLibrary={
-                (lib) => { this.setState({ library: lib }); }
-              }
-            />
-          }
-        />
+              id="simple-menu"
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={this.handleClose}
+            >
+              <MenuItem
+                onClick={() => this.setLibrary('cmdi')}
+                disabled={library === 'cmdi'}
+              >
+                Community M. D. Icons
+              </MenuItem>
+              <MenuItem
+                onClick={() => this.setLibrary('evilicons')}
+                disabled={library === 'evilicons'}
+              >
+                EvilIcons
+              </MenuItem>
+              <MenuItem
+                onClick={() => this.setLibrary('fontawesome')}
+                disabled={library === 'fontawesome'}
+              >
+                FontAwesome
+              </MenuItem>
+              <MenuItem
+                onClick={() => this.setLibrary('ionicons')}
+                disabled={library === 'ionicons'}
+              >
+                IonIcons
+              </MenuItem>
+              <MenuItem
+                onClick={() => this.setLibrary('mdi')}
+                disabled={library === 'mdi'}
+              >
+                Material Design Icons
+              </MenuItem>
+              <MenuItem
+                onClick={() => this.setLibrary('octicons')}
+                disabled={library === 'octicons'}
+              >
+                Github Octicons
+              </MenuItem>
+              <MenuItem
+                onClick={() => this.setLibrary('typicons')}
+                disabled={library === 'octtypiconsicons'}
+              >
+                Typicons
+              </MenuItem>
+            </Menu>
+          </Toolbar>
+        </AppBar>
         <IconList library={library} />
       </div>
     );

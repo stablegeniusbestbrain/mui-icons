@@ -23,7 +23,7 @@ Simply import the icons you want and add them to [IconButtons](http://www.materi
 
 ```javascript
 import React from 'react';
-import IconButton from 'material-ui/IconButton';
+import IconButton from ' @material-ui/core/IconButton';
 
 import Heart from 'mui-icons/cmdi/heart';
 // import Heart from 'mui-icons/evilicons/heart';
