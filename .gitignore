@@ -1,13 +1,3 @@
 .vscode
 node_modules
 npm-debug.log
-
-# Generated code
-/evilicons/
-/fontawesome/
-/ionicons/
-/mdi/
-/cmdi/
-/octicons/
-/typicons/
-index.js

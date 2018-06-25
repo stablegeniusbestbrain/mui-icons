@@ -25,7 +25,7 @@ const globs = {
 
 const compiled = template(
 `import React from 'react';
-import SvgIcon from 'material-ui/SvgIcon';
+import SvgIcon from '@material-ui/core/SvgIcon';
 
 const Icon = props => (
   <SvgIcon {...props}>
