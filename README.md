@@ -1,17 +1,17 @@
-# Mui Icons
+# Mat-UI Icons
 
 [![npm][npm-image]][npm-url]
 
-[npm-image]: https://img.shields.io/npm/v/mui-icons.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/mui-icons
 
-Effortlessly include icons from the most popular icon libraries in you [Material-UI](http://www.material-ui.com/#/) project. This project wraps each icon with Mui's [SvgIcon](http://www.material-ui.com/#/components/svg-icon) component so they are compatible with Material UI and will match your theme.
+[npm-url]: https://www.npmjs.com/package/mat-ui-icons
+
+Effortlessly include icons from the most popular icon libraries in you [Material-UI](http://www.material-ui.com/) project.
 
 ## Installation
 
 Yes, you guessed it:
 
-    npm i -S mui-icons
+    npm i -S mat-ui-icons
 
 This package has `material-ui` as a peer dependency, so remember to also have that in your `node_modules`.
 
@@ -46,9 +46,9 @@ If you know what you are doing you may also include all of the icons from a libr
 
 ```javascript
 // Prefer this
-import Ionicons from 'mui-icons/ionicons';
+import Ionicons from 'mat-ui-icons/ionicons';
 // This works too, but don't use it
-import { Ionicons } from 'mui-icons';
+import { Ionicons } from 'mat-ui-icons';
 ```
 
 The first option is preferable, because the second, if a tree-shake is not implemented it would result in a bundle larger than necessary (unless you really are using every single icon from the package).
@@ -65,9 +65,6 @@ The first option is preferable, because the second, if a tree-shake is not imple
 | Github Octicons | `octicons` | https://octicons.github.com/ | 176 |
 | Typicons | `typicons` | http://www.typicons.com/ | 336 |
 
-## Configuration
-
-Any props added to an Icon will be forwarded to Mui's SvgIcon element (except for `children`, which will be the paths of the icon you want). [Check the Mui docs](http://www.material-ui.com/#/components/svg-icon) to see it's props.
 
 ## Known Issues
 

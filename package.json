@@ -1,7 +1,7 @@
 {
-  "name": "mui-icons",
-  "version": "1.2.1",
-  "description": "Popular Icons library combined and compatible with Material UI",
+  "name": "mat-ui-icons",
+  "version": "1.0.0",
+  "description": "Popular Icons library combined and compatible with Material-UI v1.2.3",
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext jsx --ext js --color",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThadeuLuz/mui-icons.git"
+    "url": "git+https://github.com/stablegeniusbestbrain/mui-icons"
   },
   "keywords": [
     "material-ui",
@@ -30,9 +30,9 @@
   "author": "Thadeu Luz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ThadeuLuz/mui-icons/issues"
+    "url": "https://github.com/stablegeniusbestbrain/mui-icons/issues"
   },
-  "homepage": "https://github.com/ThadeuLuz/mui-icons#readme",
+  "homepage": "https://github.com/stablegeniusbestbrain/mui-icons#readme",
   "peerDependencies": {
     "@material-ui/core": "*",
     "@material-ui/icons": "*"
